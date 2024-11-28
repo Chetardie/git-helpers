@@ -1,0 +1,15 @@
+git checkout your-branch
+
+# Use interactive rebase to remove the unwanted commits. 
+# Start an interactive rebase from a commit before the ones you want to remove. For example, if you want to remove the last three commits:
+git rebase -i HEAD~4
+
+# Change pick to drop for the commits you want to remove, switch to edit mode by pressing I: 
+pick <commit-hash1> Commit message 1
+drop <commit-hash2> Commit message 2
+
+#Press Esc and then save the file by typing :wq and the interactive rebase will be applied
+
+# Since you have rewritten the commit history, you need to force push the changes to the remote branch. 
+# This is a potentially destructive operation, so use it with caution.
+git push origin your-branch --force
